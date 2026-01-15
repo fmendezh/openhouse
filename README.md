@@ -20,6 +20,7 @@ A comprehensive platform for managing volunteers and events, built with modern w
 - 🎯 **Volunteer Profiles**: Detailed profiles with skills, interests, and availability
 - 📊 **Hours Tracking**: Track and verify volunteer hours
 - ✅ **Event Registration**: Easy event registration and check-in system
+- 🚀 **REST API**: Comprehensive REST API with 20+ endpoints for all resources
 
 ## Getting Started
 
@@ -93,7 +94,12 @@ npm run db:studio
 openhouse/
 ├── app/                    # Next.js App Router pages
 │   ├── api/               # API routes
-│   │   └── auth/         # Authentication endpoints
+│   │   ├── auth/         # Authentication endpoints
+│   │   ├── users/        # User management API
+│   │   ├── volunteers/   # Volunteer API
+│   │   ├── events/       # Events API
+│   │   ├── registrations/ # Event registrations API
+│   │   └── hours/        # Volunteer hours API
 │   ├── auth/             # Authentication pages
 │   ├── dashboard/        # Dashboard page
 │   ├── globals.css       # Global styles
@@ -106,12 +112,26 @@ openhouse/
 ├── prisma/               # Database schema and migrations
 │   └── schema.prisma     # Prisma schema
 ├── public/               # Static files
+├── API_DOCUMENTATION.md  # Complete REST API documentation
 ├── .env                  # Environment variables (gitignored)
 ├── .env.example          # Environment variables template
 ├── next.config.ts        # Next.js configuration
 ├── tailwind.config.ts    # Tailwind CSS configuration
 └── tsconfig.json         # TypeScript configuration
 ```
+
+## REST API
+
+The platform includes a comprehensive REST API with full CRUD operations for all resources. See [API_DOCUMENTATION.md](API_DOCUMENTATION.md) for complete endpoint reference.
+
+**Available APIs:**
+- `/api/users` - User management
+- `/api/volunteers` - Volunteer profiles
+- `/api/events` - Event management
+- `/api/registrations` - Event registrations
+- `/api/hours` - Volunteer hours tracking
+
+All endpoints require authentication and support role-based access control.
 
 ## Database Schema
 
