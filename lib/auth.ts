@@ -3,6 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials";
 import { prisma } from "./prisma";
 import { compare } from "bcryptjs";
 import type { NextAuthConfig } from "next-auth";
+import NextAuth from "next-auth";
 
 export const authOptions: NextAuthConfig = {
   adapter: PrismaAdapter(prisma) as any,
@@ -78,3 +79,10 @@ export const authOptions: NextAuthConfig = {
     },
   },
 };
+
+export const { auth, handlers, signIn, signOut } = NextAuth(authOptions);
+
+// Helper function to get session in API routes
+export async function getSession() {
+  return await auth();
+}
